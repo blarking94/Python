@@ -15,6 +15,7 @@ ok_status = '200 OK'
 
 # Basic successful headers
 def get_basic_response_headers(response_body):
+    
     return [
         ('Content-Type', 'text/html'),
         ('Content-Length', str(len(response_body)))
@@ -22,12 +23,13 @@ def get_basic_response_headers(response_body):
 
 # Convert any variables passed in the query to a dict
 def extract_query_variables_to_dict(query_string):
+    
     get_dict = {}
+    
     for param in query_string.split('&'):
         key, value = (param.split('=')) if (len(param.split('='))) > 1 else (None, None)
         get_dict[key] = value
     return get_dict
-
 
 def make_a_server(environ, start_response):
 
@@ -61,7 +63,9 @@ def make_a_server(environ, start_response):
             response_body = b"This is a GET request"
 
         start_response(ok_status, get_basic_response_headers(response_body))
+        
     else:
+        
         response_body = ("Currently %s is an unsupported method, try POST or GET." % (method)).encode("utf-8")
         start_response(ok_status, get_basic_response_headers(response_body))
 
