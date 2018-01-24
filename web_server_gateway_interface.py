@@ -42,7 +42,7 @@ def make_a_server(environ, start_response):
 
     if method == 'POST':
 
-        # if path is localhost:8002/me send back basic GET message,
+        # if path is localhost:8002/me send back basic POST message,
         # if there are variables i.e localhost:8002/me?name=ben show these variables
         if path.startswith('/me'):
             response_body = ("You posted me! %s" % (extract_query_variables_to_dict(environ['QUERY_STRING']))).encode("utf-8")
