@@ -1,7 +1,44 @@
-<h3>
-  Chatter Trade
+{% load static %}
 
-  <ul>
-    <li><a href="/currencies/gbpusd">GBP USD Chatter</a></li>
-  </ul>
-</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="{% static 'chatter/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'chatter/css/index.css' %}">
+    <title>Chatter Trade</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div>
+        <p id="index-title">
+          Chatter Trade
+        </p>
+      </div>
+      <div class="col-md-offset-1 col-md-10">
+        <hr class="bold-hr"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active index-menu"><a href="#">Home</a></li>
+          <li role="presentation" class="index-menu"><a href="/currencies/gbpusd">GBP/USD</a></li>
+          <li role="presentation" class="index-menu"><a href="#">Forum</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <h1 class="h1">
+          Welcome
+        </h1>
+        <p>
+          Welcome to Chatter Trade! The home of real time public forex chart analysis. Share trade ideas, statergie, meet like minded people and most importantly, profit.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+<html>

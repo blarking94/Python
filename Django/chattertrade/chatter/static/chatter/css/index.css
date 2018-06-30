@@ -1,0 +1,14 @@
+#index-title {
+  font-size: 7em;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.index-menu{
+  width: 33% !important;
+}
+
+.bold-hr{
+  border: 2px solid #eee;
+  border-radius: 45px;
+}
