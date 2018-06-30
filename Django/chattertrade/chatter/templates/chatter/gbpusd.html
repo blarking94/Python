@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Chat Room</title>
+</head>
+<body>
+    <h3>
+      GBP USD Chatter Trade
+    </h3>
+
+    <textarea id="chat-log" cols="910" rows="10"></textarea><br/>
+    <input id="chat-message-input" type="text" size="910"/><br/>
+    <input id="chat-message-submit" type="button" value="Send"/>
+
+        <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_b64db"></div>
+      <div class="tradingview-widget-copyright"><a href="https://uk.tradingview.com/symbols/FX-GBPUSD/" rel="noopener" target="_blank"><span class="blue-text">GBPUSD chart</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.widget({
+        "width": 1210,
+        "height": 910,
+        "symbol": "FX:GBPUSD",
+        "interval": "D",
+        "timezone": "Europe/London",
+        "theme": "Light",
+        "style": "1",
+        "locale": "uk",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": true,
+        "withdateranges": true,
+        "hide_side_toolbar": false,
+        "save_image": false,
+        "container_id": "tradingview_b64db"
+      });
+      </script>
+    </div>
+    <!-- TradingView Widget END -->
+</body>
+<script>
+    var roomName = {{ room_name_json }};
+
+    var chatSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/currencies/' + roomName + '/');
+
+    chatSocket.onmessage = function(e) {
+        var data = JSON.parse(e.data);
+        var message = data['message'];
+        document.querySelector('#chat-log').value += (message + '\n');
+    };
+
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly');
+    };
+
+    document.querySelector('#chat-message-input').focus();
+    document.querySelector('#chat-message-input').onkeyup = function(e) {
+        if (e.keyCode === 13) {  // enter, return
+            document.querySelector('#chat-message-submit').click();
+        }
+    };
+
+    document.querySelector('#chat-message-submit').onclick = function(e) {
+        var messageInputDom = document.querySelector('#chat-message-input');
+        var message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({
+            'message': message
+        }));
+
+        messageInputDom.value = '';
+    };
+</script>
+</html>
