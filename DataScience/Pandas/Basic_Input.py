@@ -1,7 +1,9 @@
 """
-Created on Thu Oct  4 10:32:30 2018
+Created on Thu Oct  3
 
 @author: benjamin.o.larking
+
+Some basic examples of how we can read CSV or JSON files. 
 """
 import pandas as pd
 import json
@@ -12,7 +14,7 @@ import os
 ############################################################################################
 
 # Where our data is
-csv_path="C:\\Users\\benjamin.o.larking\\Documents\\GitHubProjects\\Python\\DataScience\\DataSets\\artwork_data.csv"
+csv_path= os.path.join("..", "DataSets", "artwork_data.csv")
 
 # Read just 5 first rows of the CSV, use ID as the index
 csv_df = pd.read_csv(csv_path, nrows = 5, index_col = 'id')

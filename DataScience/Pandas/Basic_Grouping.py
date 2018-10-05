@@ -1,13 +1,17 @@
 """
-Created on Thu Oct  4 10:32:30 2018
+Created on Thu Oct  3
 
 @author: benjamin.o.larking
+
+Some basic examples of some grouping and aggregation functions
+
 """
 import pandas as pd
 import numpy as np
+import os
 
 # Where our data is
-csv_path="C:\\Users\\benjamin.o.larking\\Documents\\GitHubProjects\\Python\\DataScience\\DataSets\\artwork_data.csv"
+csv_path= os.path.join("..", "DataSets", "artwork_data.csv")
 
 csv_df = pd.read_csv(csv_path, index_col = 'id')
 
