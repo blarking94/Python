@@ -11,7 +11,6 @@ sqlContext = SQLContext(sc)
 
 def parseRaw(line):
 	split = line.split(",")
-	#date = time.strptime(split[0], "%Y-%m-%d %H:%M:%S")
 	date = split[0]
 	gbp = split[1]
 	usd = split[2]
