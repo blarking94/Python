@@ -1,0 +1,7 @@
+README.md
+cool.py
+setup.py
+firstPackage.egg-info/PKG-INFO
+firstPackage.egg-info/SOURCES.txt
+firstPackage.egg-info/dependency_links.txt
+firstPackage.egg-info/top_level.txt

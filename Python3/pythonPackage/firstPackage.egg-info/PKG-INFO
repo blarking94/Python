@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: firstPackage
+Version: 0.0.1
+Summary: my First Package
+Home-page: UNKNOWN
+Author: Ben Larking
+Author-email: ben@email.com
+License: UNKNOWN
+Description: A simple readme for demo purposes
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
